@@ -1,0 +1,97 @@
+﻿
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/loginform/fonts/icomoon/style.css">
+
+    <link rel="stylesheet" href="~/loginform/css/owl.carousel.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/loginformcss/bootstrap.min.css">
+    
+    <!-- Style -->
+    <link rel="stylesheet" href="~/loginform/css/style.css">
+
+    <title>Login #7</title>
+  </head>
+  <style>
+    .mybtn{
+      background-color:#063547;
+      border: none;
+    }
+    .mybtn:hover{
+      background-color:  #44b89d;
+      border: none;
+    }
+  </style>
+  <body>
+  
+
+  
+  <div class="content">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+         <img src="~/loginform/images/login.jpg" alt="Image" class="img-fluid">
+        </div>
+        <div class="col-md-6 contents">
+          <div class="row justify-content-center">
+            <div class="col-md-8">
+              <div class="mb-4">
+              <h3>Sign In</h3>
+              <p class="mb-4">Lorem ipsum dolor sit amet elit. Sapiente sit aut eos consectetur adipisicing.</p>
+            </div>
+            <form action="#" method="post">
+              <div class="form-group first">
+                <label for="username">User Email</label>
+                <input type="text" class="form-control" id="username" name="email">
+                                  
+                                </div>
+              <div class="form-group last mb-4">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" name="password">
+                
+              </div>
+
+                                @if (ViewBag.ErrorMessage != null)
+                                {
+                                    <p style="color:red">@ViewBag.ErrorMessage</p>
+                                }
+
+              <input type="submit" value="Log In" class="btn btn-block btn-primary mybtn">
+<span class="d-block text-left my-4 text-muted">New customer ?<a href="@Url.Action("register_form","home")">please create an account!</a></span>
+              <span class="d-block text-left my-4 text-muted">&mdash; or login with &mdash;</span>
+              
+              <div class="social-login">
+                <a href="#" class="facebook">
+                  <span class="icon-facebook mr-3"></span> 
+                </a>
+                <a href="#" class="twitter">
+                  <span class="icon-twitter mr-3"></span> 
+                </a>
+                <a href="#" class="google">
+                  <span class="icon-google mr-3"></span> 
+                </a>
+              </div>
+            </form>
+            </div>
+          </div>
+          
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  
+    <script src="~/loginform/js/jquery-3.3.1.min.js"></script>
+    <script src="~/loginform/js/popper.min.js"></script>
+    <script src="~/loginform/js/bootstrap.min.js"></script>
+    <script src="~/loginform/js/main.js"></script>
+  </body>
+</html>

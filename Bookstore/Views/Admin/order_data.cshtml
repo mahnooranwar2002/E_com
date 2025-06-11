@@ -1,0 +1,694 @@
+﻿@model Bookstore.Models.mainmodel;
+@{
+    Layout = "../shared/dashbroadlayout.cshtml";
+
+}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Site Metas -->
+    <link rel="icon" href="images/favicon.png" type="image/gif" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>Bostorek</title>
+
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+    <!-- font awesome style -->
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="css/responsive.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+          rel="stylesheet" />
+    <!-- <style>
+
+        .mybooksection {
+          height: 60px;
+          width: 103%;
+          background-color: #44b89d;
+
+
+        }
+
+        .mycontainer {
+
+          padding: 30px;
+          height: 800px;
+        }
+
+        .mybook h2 {
+          color: white;
+          padding-top: 15px;
+          font-weight: bolder;
+        }
+
+        .sec {
+          height: 500px;
+          width: 100%;
+          display: flex;
+          justify-content: left;
+
+
+
+        }
+
+        .box1 {
+          height: 100%;
+          justify-items: left;
+          padding: 30px;
+          height: 100%;
+          padding-top: 90px;
+          background-color: aqua;
+        }
+
+        .box1 img {
+          border-radius: 14px;
+          filter: drop-shadow(4px 4px 4px black);
+        }
+
+        .box2 {
+          height: 100%;
+          width: 100%;
+          justify-items: left;
+          padding: 30px;
+          background-color: aqua;
+        }
+
+        .cont {
+          width: 100%;
+          padding: 15px;
+
+
+          display: flex;
+          gap: 34px;
+          flex-wrap: wrap;
+
+        }
+
+        #myc1 {
+          height: 15%;
+        }
+
+        #myc2 {
+          background-color: red;
+          height: 40%;
+        }
+
+        .mah {
+          width: 100%;
+          height: 100px;
+          background-color: blue;
+          /* display: flex;justify-items: center;
+      justify-content: end; */
+          text-align: end;
+          padding: 30px;
+          gap: 10px;
+
+        }
+
+        .xyz {
+          width: 100%;
+          background-color: #44b89d;
+          display: flex;
+          justify-content: center;
+          justify-items: center;
+        }
+
+        #heading5 {
+          text-align: center;
+          margin-top: 40px;
+        }
+
+        .blank_box {
+          width: 50%;
+          height: 10px;
+          background-color: #44b89d;
+          border-radius: 20px;
+
+        }
+
+        #col1 {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .book_section {
+          height: 700px;
+
+          padding: 25px;
+          display: flex;
+          gap: 20px;
+          flex-wrap: wrap;
+          display: flex;
+
+
+        }
+
+        .cards {
+        height: 450px;
+          width: 200px;
+        border: #44b89d 4px solid;
+          border-radius: 20px;
+
+
+          box-shadow: inset 4px 4px 8px grey;
+          /* filter: drop-shadow(5px 6px 8px grey); */
+        }
+        .cards:hover{
+          box-shadow:  4px 4px 8px grey;
+        }
+        .mycard {
+          height: 70%;
+          width: 100%;
+          border-radius: 20px;
+          padding: 0px;
+       display: flex;
+       justify-content: center;
+        }
+        .mycard img{
+      width: 100%;
+      border-radius: 15px;
+      object-fit: cover;
+          height: 100%;
+        }
+        .cards h5{
+          margin-top: 5px;
+    font-weight: bolder;
+    text-align: center;
+        }
+        .cards p{
+    color: #063547 ;
+          font-weight: bolder;
+    text-align: center;
+        }
+        .cards button{
+       margin-bottom: 10px;
+          width: 50%;
+          color: white;
+          background-color: #44b89d;
+       margin-left: 10px;
+       margin-right: 10px;
+          border-radius: 10px;
+          border: none;
+          padding: 5px;
+        }
+        .cards button a{
+          color: white;
+          text-decoration: none;
+        }.cards button:hover{
+          background-color:  #063547;
+          box-shadow: 3px 3px 3px gray;
+
+        }#mysection{
+          height: 600px;
+
+          background-image: url(images/Books.jpg);
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+          position: relative;
+
+        }#sectionbox{
+          background-color:rgba(0, 0, 0, 0.603);
+          height: 100%;
+          position: absolute;
+          width: 100%;
+          left: 0%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }#sectionbox h2{
+          width: 50%;text-align: center;
+          color: white;
+        }.cart{
+          display: flex;
+        }
+      </style> -->
+    <!-- <style>
+      body {
+               font-family: Arial, sans-serif;
+               background-color: #f9f9f9;
+               margin: 0;
+               padding: 0;
+           }
+           .container {
+               width: 80%;
+               margin: 0 auto;
+               padding: 20px 0;
+           }
+           .header {
+               display: flex;
+               justify-content: space-between;
+               align-items: center;
+               padding: 20px 0;
+           }
+           .header .logo {
+               font-size: 24px;
+               font-weight: bold;
+           }
+           .header nav a {
+               margin: 0 15px;
+               text-decoration: none;
+               color: #333;
+           }
+           .header .icons i {
+               margin: 0 10px;
+               color: #333;
+           }
+           .cart-title {
+               font-size: 24px;
+               margin: 20px 0;
+           }
+           .cart-table {
+               width: 100%;
+               border-collapse: collapse;
+           }
+           .cart-table th, .cart-table td {
+               padding: 15px;
+               text-align: left;
+           }
+           .cart-table th {
+               background-color: #f1f1f1;
+           }
+           .cart-table td {
+               border-bottom: 1px solid #f1f1f1;
+           }
+           .cart-table img {
+               width: 50px;
+               height: 50px;
+               object-fit: cover;
+           }
+           .summary {
+               width: 300px;
+               float: right;
+               background-color: #fff;
+               padding: 20px;
+               box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+           }
+           .summary h3 {
+               margin-top: 0;
+           }
+           .summary .summary-item {
+               display: flex;
+               justify-content: space-between;
+               margin: 10px 0;
+           }
+           .summary .gift-code {
+               display: flex;
+               justify-content: space-between;
+               margin: 20px 0;
+           }
+           .summary .gift-code input {
+               width: 70%;
+               padding: 5px;
+               border: 1px solid #ccc;
+           }
+           .summary .gift-code button {
+               padding: 5px 10px;
+               border: none;
+               background-color: #333;
+               color: #fff;
+           }
+           .summary .total-price {
+               font-size: 18px;
+               font-weight: bold;
+           }
+           .summary .checkout-btn {
+               width: 100%;
+               padding: 10px;
+               background-color: #333;
+               color: #fff;
+               border: none;
+               cursor: pointer;
+           }
+     </style> -->
+</head>
+
+<body>
+
+    <!-- header section strats -->
+
+    <style>
+        .myci {
+            padding: 150px;
+            height: 500px;
+            color: red;
+            text-align: center;
+        }
+
+            .myci h5 {
+                font-weight: bolder;
+            }
+
+        #a_icon {
+            color: red;
+            font-size: 1.4rem;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+            .header .logo {
+                font-size: 24px;
+                font-weight: bold;
+            }
+
+            .header nav a {
+                margin: 0 15px;
+                text-decoration: none;
+                color: #333;
+            }
+
+            .header .icons i {
+                margin: 0 10px;
+                color: #333;
+            }
+
+        .cart-title {
+            font-size: 24px;
+            margin: 20px 0;
+        }
+
+        .cart-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+            .cart-table th, .cart-table td {
+                padding: 15px;
+                text-align: left;
+            }
+
+            .cart-table th {
+                background-color: #f1f1f1;
+            }
+
+            .cart-table td {
+                border-bottom: 1px solid #f1f1f1;
+            }
+
+            .cart-table img {
+                width: 50px;
+                height: 50px;
+                object-fit: cover;
+            }
+
+        .summary {
+            width: 300px;
+            float: right;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+            .summary h3 {
+                margin-top: 0;
+            }
+
+            .summary .summary-item {
+                display: flex;
+                justify-content: space-between;
+                margin: 10px 0;
+            }
+
+            .summary .gift-code {
+                display: flex;
+                justify-content: space-between;
+                margin: 20px 0;
+            }
+
+                .summary .gift-code input {
+                    width: 70%;
+                    padding: 5px;
+                    border: 1px solid #ccc;
+                }
+
+                .summary .gift-code button {
+                    padding: 5px 10px;
+                    border: none;
+                    background-color: #333;
+                    color: #fff;
+                }
+
+            .summary .total-price {
+                font-size: 18px;
+                font-weight: bold;
+            }
+
+            .summary .checkout-btn {
+                width: 100%;
+                padding: 10px;
+                background-color: #333;
+                color: #fff;
+                border: none;
+                cursor: pointer;
+            }
+    </style>
+    </style>
+    <!-- <a href="" id="a_icon"><i class="ri-delete-bin-2-line"></i></a> -->
+    <!-- <div class="container">
+
+      <div class="cart-title">
+      3  Items in my cart
+      </div>
+      <table class="cart-table">
+       <thead>
+        <tr>
+         <th>
+          Item
+         </th>
+         <th>
+          Unit Price
+         </th>
+         <th>
+          Quantity
+         </th>
+         <th>
+          Final Price
+         </th>
+         <th>
+          Remove
+         </th>
+        </tr>
+       </thead>
+       <tbody>
+        <tr>
+         <td>
+          <img alt="Levis Jeans 501" height="50" src="https://storage.googleapis.com/a1aa/image/iI6EZbQlb1Z7AhyG6wnavur21Ur5al6y3BYQ4gqJf1vYQY0JA.jpg" width="50"/>
+          Levis Jeans 501
+         </td>
+         <td>
+          22€
+         </td>
+         <td>
+          02
+         </td>
+         <td>
+          02
+         </td>  <td>
+          02
+         </td>
+        </tr>
+       </tbody>
+      </table>
+      <div class="summary">
+       <h3>
+        Summary
+       </h3>
+       <div class="summary-item">
+        <span>
+         Subtotal:
+        </span>
+        <span>
+         232€
+        </span>
+       </div>
+       <div class="summary-item">
+        <span>
+         Shipping:
+        </span>
+        <span>
+         34€
+        </span>
+       </div>
+       <div class="gift-code">
+        <input placeholder="Enter gift code" type="text"/>
+        <button>
+         →
+        </button>
+       </div>
+       <div class="summary-item total-price">
+        <span>
+         Total Price:
+        </span>
+        <span>
+         266€
+        </span>
+       </div>
+       <button class="checkout-btn">
+        PROCEED TO CHECKOUT
+       </button>
+      </div>
+     </div> -->
+    <style>
+        #mydada {
+            height: 800px;
+            padding: 100px;
+            /* color: red; */
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #button {
+            color: white;
+            background-color: #063547;
+            border: none;
+            padding: 5px;
+            width: 50px;
+        }
+
+        #input {
+            border: none;
+            border-bottom: 2px solid #44b89d;
+            outline: none;
+            width: 50%;
+            padding: 5px;
+            margin-right: 10px;
+            background-color: rgba(253, 253, 253, 0.014);
+        }
+
+            #input:hover {
+                border: none;
+                outline: none;
+                border-bottom: 2px solid #44b89d;
+            }
+
+        #slectAuthor {
+            background-color: #063547;
+            color: white;
+            padding: 8px;
+            border: none;
+            border-radius: 6px;
+        }
+
+        #options {
+            background-color: white;
+            color: black;
+        }
+
+        .mycard {
+            height: 600px;
+            border-radius: 15px;
+            border: 5px solid #063547;
+        }
+
+        .mybox {
+            height: 100px;
+            background-color: #063547;
+            padding-top: 25px;
+            color: white;
+        }
+
+        .card-body {
+            text-align: start;
+        }
+
+        .box2 {
+            width: 100%;
+            height: 40px;
+            text-align: end;
+        }
+    </style>
+
+
+    <div class="container" id="mydada">
+        @foreach (var data in Model.orders_Details)
+        {
+            <div class="card mycard" style="width: 18rem;">
+                <div class="mybox">
+                    <h2>@data.user_name</h2>
+                </div>
+                <div class="card-body">
+                    <p class="card-text"><b>Email : </b>@data.user_email</p>
+                    <p class="card-text"><b>Payment Mode : </b>@data.payment</p>
+                    <p class="card-text"><b>Card Number: </b>@data.card_num</p>
+                    <p class="card-text"><b>Card holder : </b>@data.card_holder</p>
+                    <p class="card-text"><b>Cvv : </b>@data.cvv</p>
+                    <p class="card-text"><b>Products Name : </b>@data.product_name</p>
+                    <p class="card-text"><b>product Count: </b>@data.product_quantity</p>
+                    <p class="card-text"><b>Address : </b>@data.address</p>
+                    <p class="card-text">
+                        <b>Delivered Status : </b>@if (data.status == 1)
+                        {
+                            <span>pending</span>
+                        }
+                        else
+                        {
+                            <span>Delivered</span>
+
+                        }
+                    </p>
+
+                    <div class="box2">
+                        <h4>Sum : @data.sum</h4>
+                        <h4>Product count : @data.product_count</h4>
+                    </div>
+
+                </div>
+            </div>
+
+        }
+
+
+
+    </div>
+
+    <!-- jQery -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+
+
+
+    </script>
+    <!-- bootstrap js -->
+    <script src="js/bootstrap.js"></script>
+    <!-- custom js -->
+    <script src="js/custom.js"></script>
+    <!-- Google Map -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
+    </script>
+    <!-- End Google Map -->
+
+</body>
+
+</html>

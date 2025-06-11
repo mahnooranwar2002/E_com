@@ -1,0 +1,91 @@
+﻿@{
+    Layout = "../shared/dashbroadlayout";
+}
+<div class="container-fluid">
+    <div class="main-content">
+        <h1>Book Management</h1>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card card-count">
+                    <div class="card-body">
+                        <div class="count">@TempData["admin_count"]</div>
+                        <div class="icon">
+                            <i style="color:#44b89d; font-size:2rem" class="fa fa-user-circle"></i>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        Total Admin
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-count">
+                    <div class="card-body">
+                        <div class="count">  @TempData["User_count"]</div>
+                        <div class="icon"><i  style="color:#44b89d; font-size:2rem" class="fa fa-user-circle"></i></div>
+                        
+                    </div>
+                    <div class="card-footer">
+                       Total User
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-count">
+                    <div class="card-body">
+                        <div class="count">@TempData["authors_count"]</div>
+                        <div class="icon"><i style="color:#44b89d; font-size:2rem" class='bx bxs-user-circle'></i></div>
+                    </div>
+                    <div class="card-footer">
+                        Total Authors
+                    </div>
+                </div>
+            </div>
+       
+          
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card card-count">
+                    <div class="card-body">
+                        <div class="count">@TempData["genres_count"]</div>
+                        <div class="icon">
+                            <i style="color:#44b89d; font-size:2rem" class='bx bxs-edit-alt'></i>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        Total Genres
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-count">
+                    <div class="card-body">
+                        <div class="count">@TempData["Books_count"] </div>
+                        <div class="icon"> <i style="color:#44b89d; font-size:2rem" class='bx bxs-book-bookmark'></i></div>
+                    </div>
+                    <div class="card-footer">
+                      Total Books
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-count">
+                    <div class="card-body">
+                        <div class="count"> @TempData["orders_count"]</div>
+                        <div class="icon">
+                            <i style="color:#44b89d; font-size:2rem" class="ri-shopping-cart-fill"></i>
+                            </div>
+                    </div>
+                    <div class="card-footer">
+                      Total Orders
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+
+    </div>
+
+</div>

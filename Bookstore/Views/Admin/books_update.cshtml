@@ -1,0 +1,297 @@
+﻿@model Bookstore.Models.mainmodel;
+@{
+    Layout = "../shared/dashbroadlayout.cshtml";
+
+}
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    .card-header {
+        background-color: #44b89d;
+        color: white;
+    }
+
+    .btn1 {
+        background-color: #44b89d;
+        border-color: #44b89d;
+    }
+
+    .btn-secondary {
+        background-color: #44b89d;
+        border-color: #44b89d;
+    }
+
+    .btn-warning {
+        background-color: #ffc107;
+        border-color: #ffc107;
+    }
+
+    .btn-danger {
+        background-color: #dc3545;
+        border-color: #dc3545;
+    }
+
+    .text-grey {
+        color: #6c757d;
+    }
+
+    .text-black {
+        color: #343a40;
+    }
+
+    .modal-content {
+        border-radius: 15px;
+        overflow: hidden;
+    }
+
+    .modal-header {
+        background-color: #44b89d;
+        color: #fff;
+        border-bottom: none;
+    }
+
+    .modal-title {
+        font-weight: bold;
+    }
+
+    .close {
+        color: #fff;
+        opacity: 1;
+    }
+
+    .modal-body {
+        padding: 2rem;
+    }
+
+    .form-group label {
+        font-weight: 600;
+    }
+
+    .form-control {
+        border-radius: 10px;
+        padding: 0.75rem 1rem;
+        border: 1px solid #ced4da;
+        transition: all 0.3s ease-in-out;
+        box-shadow: none;
+        background-color: #f8f9fa;
+        font-size: 1rem;
+    }
+
+        .form-control:focus {
+            border-color: #80bdff;
+            box-shadow: 0 0 10px rgba(0, 123, 255, 0.25);
+            background-color: #ffffff;
+        }
+
+        .form-control::placeholder {
+            color: #6c757d;
+            opacity: 1;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .form-control:focus::placeholder {
+            opacity: 0.5;
+        }
+
+    .btn1 {
+        background-color: #44b89d;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        padding: 0.75rem 1.5rem;
+        font-weight: bold;
+        transition: background-color 0.3s ease-in-out;
+    }
+
+        .btn1:hover {
+            background-color: #44b89d;
+            color: white;
+        }
+
+    .btn-block {
+        margin-top: 1rem;
+    }
+
+    .input-group {
+        flex: 1;
+        max-width: 100%;
+    }
+
+    #searchPassenger {
+        border-radius: 0.25rem 0 0 0.25rem;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .input-group-append .btn {
+        border-radius: 0 0.25rem 0.25rem 0;
+        background-color: #44b89d;
+        color: white;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+        .input-group-append .btn:hover {
+            background-color: #44b89d;
+        }
+
+    .btn-primary {
+        background-color: #28a745;
+        border-color: #28a745;
+    }
+
+        .btn-primary:hover {
+            background-color: #44b89d;
+            border-color: #44b89d;
+        }
+
+    /* Counting cards */
+    .card-count {
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+    }
+
+        .card-count .card-body {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .card-count .count {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .card-count .icon {
+            font-size: 2.5rem;
+            color: #44b89d;
+        }
+
+    .main-content {
+        padding: 20px;
+        margin-top: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .cardd {
+        margin-bottom: 20px;
+    }
+
+    .cardbody {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .cardd-img {
+        object-fit: cover;
+        height: 100%;
+    }
+
+    .cardtitle {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    .carddbody ul {
+        list-style-type: disc;
+        padding-left: 20px;
+    }
+
+    .form-group select {
+        width: 100%;
+        padding: .375rem 1.75rem .375rem .75rem;
+    }
+
+    .xyz {
+        width: 100%;
+       padding:10px;
+        display: flex;
+        justify-content: center;
+        justify-items: center;
+    }
+    .xyz img{
+        width:100%;
+        height:300px;
+        object-fit:cover;
+        border-radius:10px;
+    }
+</style>
+
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+
+            <h5 class="modal-title" id="addPassengerModalLabel">Edit Book</h5>
+        </div>
+        <div class="xyz">
+            <img src="@Url.Content("~/books_covers/"+Model.book_data.book_cover)" alt="">
+        </div>
+        <form asp-action="update_picture" asp-controller="admin" enctype="multipart/form-data">
+  <input type="hidden" name="id" value="@Model.book_data.id" placeholder="Enter genres name">
+            <input type="hidden"  name="name" value="@Model.book_data.name" placeholder="Enter genres name">
+            <input type="hidden"  name="genres_id" value="@Model.book_data.genres_id" placeholder="Enter genres name">
+            <input type="hidden"  name="auth_id" value="@Model.book_data.auth_id" placeholder="Enter genres name">
+            <input type="hidden"  name="description" value="@Model.book_data.description" placeholder="Enter genres name">
+            <input type="hidden"  name="price" value="@Model.book_data.price" placeholder="Enter genres name">
+            <input type="hidden"  name="qunatiy" value="@Model.book_data.qunatiy" placeholder="Enter genres name">
+            <input type="hidden"  name="total" value="@Model.book_data.total" placeholder="Enter genres name">
+            <input type="file" name="book_cover" required>
+
+            <button type="submit" class="btn btn1 btn-block">Save</button>
+
+        </form>
+
+        <div class="modal-body">
+            <form method="post" enctype="multipart/form-data">
+                <input type="hidden" class="form-control" id="passengerId" name="book_cover" value="@Model.book_data.book_cover" placeholder="Enter genres name">
+  <input type="hidden" class="form-control" id="passengerId" name="id" value="@Model.book_data.id" placeholder="Enter genres name">
+               
+                <div class="form-group">
+                    <label for="passengerId">Name</label>
+                    <input type="text" class="form-control" id="passengerId" value="@Model.book_data.name" name="name" placeholder="Enter genres name">
+                </div>
+
+              
+                <div class="form-group">
+                    <label for="passengerId">Author</label>
+                    <select name="auth_id" class="form-control"  >
+                        <option hidden value="@Model.book_data.auth_id">select an author</option>
+                        @foreach (var data in Model.auth_details)
+                        {
+                            <option value="@data.id">@data.name</option>
+                        }
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="passengerId">genres</label>
+                    <select name="genres_id" class="form-control">
+                        <option hidden value="@Model.book_data.genres_id">select genres</option>
+                        @foreach (var data in Model.genres_details)
+                        {
+                            <option value="@data.id">@data.name</option>
+                        }
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="passengerId">Book Quantity</label>
+                    <input type="text" value="@Model.book_data.qunatiy" class="form-control" id="passengerId" name="qunatiy" placeholder="Enter genres name">
+                </div>
+                <div class="form-group">
+                    <label for="passengerId">Book Price</label>
+                    <input type="text" value="@Model.book_data.price" class="form-control" id="passengerId" name="price" placeholder="Enter genres name">
+                </div>
+                <div class="form-group">
+                    <label for="passengerId">Book Desprition</label>
+                    <textarea name="description" required class="form-control">@Model.book_data.description</textarea>
+                </div>
+
+                <button type="submit" class="btn btn1 btn-block">Save</button>
+            </form>
+        </div>
+    </div>
+</div>

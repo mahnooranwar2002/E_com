@@ -1,0 +1,443 @@
+﻿@model Bookstore.Models.mainmodel;
+<style>
+    .mybooksection {
+        height: 60px;
+        width: 103%;
+        background-color: #44b89d;
+    }
+
+    .mycontainer {
+        padding: 30px;
+        height: 800px;
+    }
+
+    .mybook h2 {
+        color: white;
+        padding-top: 15px;
+        font-weight: bolder;
+    }
+
+    .sec {
+        height: 500px;
+        width: 100%;
+        display: flex;
+        justify-content: left;
+    }
+
+    .box1 {
+        height: 100%;
+        justify-items: left;
+        padding: 30px;
+        height: 100%;
+        padding-top: 90px;
+        background-color: aqua;
+    }
+
+        .box1 img {
+            border-radius: 14px;
+            filter: drop-shadow(4px 4px 4px black);
+        }
+
+    .box2 {
+        height: 100%;
+        width: 100%;
+        justify-items: left;
+        padding: 30px;
+        background-color: aqua;
+    }
+
+    .cont {
+        width: 100%;
+        padding: 15px;
+        display: flex;
+        gap: 34px;
+        flex-wrap: wrap;
+    }
+
+    #myc1 {
+        height: 15%;
+    }
+
+    #myc2 {
+        background-color: red;
+        height: 40%;
+    }
+
+    .mah {
+        width: 100%;
+        height: 100px;
+        background-color: blue;
+        /* display: flex;justify-items: center;
+          justify-content: end; */
+        text-align: end;
+        padding: 30px;
+        gap: 10px;
+    }
+
+    .xyz {
+        width: 100%;
+        background-color: #44b89d;
+        display: flex;
+        justify-content: center;
+        justify-items: center;
+    }
+
+    #heading5 {
+        text-align: center;
+        margin-top: 40px;
+    }
+
+    .blank_box {
+        width: 50%;
+        height: 10px;
+        background-color: #44b89d;
+        border-radius: 20px;
+    }
+
+    #col1 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .book_section {
+        height: 700px;
+        padding: 25px;
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        display: flex;
+    }
+
+    .cards {
+        height: 540px;
+        width: 200px;
+        border: #44b89d 4px solid;
+        border-radius: 20px;
+        box-shadow: inset 4px 4px 8px grey;
+        /* filter: drop-shadow(5px 6px 8px grey); */
+    }
+
+        .cards:hover {
+            box-shadow: 4px 4px 8px grey;
+        }
+
+    .mycard {
+        height: 70%;
+        width: 100%;
+        border-radius: 20px;
+        padding: 0px;
+        display: flex;
+        justify-content: center;
+    }
+
+        .mycard img {
+            width: 100%;
+            border-radius: 15px;
+            object-fit: cover;
+            height: 100%;
+        }
+
+    .cards h5 {
+        margin-top: 5px;
+        font-weight: bolder;
+        text-align: center;
+    }
+
+    .cards p {
+        color: #063547;
+        font-weight: bolder;
+        text-align: center;
+    }
+
+    .cards button {
+        margin-bottom: 10px;
+        width: 50%;
+        color: white;
+        background-color: #44b89d;
+        margin-left: 10px;
+        margin-right: 10px;
+        border-radius: 10px;
+        border: none;
+        margin-left: 25%;
+        padding: 5px;
+    }
+
+        .cards button a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .cards button:hover {
+            background-color: #063547;
+            box-shadow: 3px 3px 3px gray;
+        }
+
+    #mysection {
+        height: 600px;
+        background-image: url(images/Books.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+    }
+
+    #sectionbox {
+        background-color: rgba(0, 0, 0, 0.603);
+        height: 100%;
+        position: absolute;
+        width: 100%;
+        left: 0%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+        #sectionbox h2 {
+            width: 50%;
+            text-align: center;
+            color: white;
+        }
+
+    .cart {
+        display: flex;
+    }
+
+    #mydada {
+        height: auto;
+        /* background-color: red; */
+        padding: 100px;
+        /* color: red; */
+        text-align: center;
+        display: flex;
+        justify-content: center;
+    }
+
+    #button {
+        color: white;
+        background-color: #063547;
+        border: none;
+        padding: 5px;
+        width: 50px;
+        border-radius: 3px;
+    }
+
+    #input {
+        border: none;
+        border-bottom: 2px solid #44b89d;
+        outline: none;
+        padding: 5px;
+        margin-right: 10px;
+        background-color: rgba(253, 253, 253, 0.014);
+    }
+
+        #input:hover {
+            border: none;
+            outline: none;
+            border-bottom: 2px solid #44b89d;
+        }
+
+    #slectAuthor {
+        background-color: #063547;
+        color: white;
+        padding: 8px;
+        border: none;
+        border-radius: 6px;
+    }
+
+    #options {
+        background-color: white;
+        color: black;
+    }
+
+
+    :root {
+        --primary-color: #D83344;
+        --text-color: #333333;
+        --background-color: #f5f5f7;
+        --card-background: #ffffff;
+    }
+
+
+    .cont {
+        /* max-width: 300px; */
+        margin: 2rem auto;
+    }
+
+    .product-card {
+        /* background-color: var(--card-background); */
+        width: 350px;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+    .product-card__image {
+        height: 250px;
+        overflow: hidden;
+    }
+
+        .product-card__image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+    .product-card:hover .product-card__image img {
+        transform: scale(1.05);
+    }
+
+    .product-card__info {
+        padding: 20px;
+    }
+
+    .product-card__title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        text-align:center;
+        margin-bottom: 10px;
+        color: var(--text-color);
+    }
+
+    .product-card__description {
+        font-size: 0.9rem;
+        color: #666;
+        margin-bottom: 20px;
+    }
+
+    .product-card__price-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin:10px 0px;
+    }
+
+    .product-card__price {
+        font-size: 1.25rem;
+        color: var(--primary-color);
+    }
+
+    .product-card__btn {
+        background-color: #063547;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 50px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin-bottom: 10px;
+        width: 100%;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+        .product-card__btn:hover {
+            background-color: #44b89d;
+        }
+
+    .cols {
+        /* margin:40px 0px; */
+        margin-bottom:40px;
+        display: flex;
+        width:100%;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+</style>
+@if (TempData["msg1"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @TempData["msg1"]
+    </div>
+}
+@if (TempData["msg2"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["msg2"]
+    </div>
+}
+<div class="conatiner-fluid">
+    <div class="container">
+        <div class="row">
+            <div class="col" id="heading5">
+                <h2>OUR BOOK</h2>
+
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col" id="col1">
+                <div class="blank_box"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container" id="mydada">
+    <div class="row">
+        <div class="col">
+            <form action="">
+                <input name="search_text" type="text" id="input" placeholder="search by keyword">
+              
+                <button type="submit" id="button">
+                    <i class="ri-search-line"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+  <div class="container cols ">
+    @foreach(var data in Model.book_details)
+    { 
+        <div class="product-card">
+         
+                <div class="product-card__image">
+                    <img src="@Url.Content("~/books_covers/"+data.book_cover)" alt="book">
+                </div>
+                <div class="product-card__info">
+                    <h2 class="product-card__title">@data.name</h2>
+
+                    <div class="product-card__price-row">
+                        <span class="product-card__price"> Price : Rs @data.price</span>
+                    </div>
+                    @if (data.qunatiy == 0)
+                    {
+                        <p style="text-align:center;color:red;">sold out</p>
+                    }
+                    else
+                    {
+                        <button class="product-card__btn">
+                            <a class="" style="color:white;" href="@Url.Action("book_data","home",new{id=data.id})">Buy now</a>
+                        </button>
+                    }
+                    <form method="post" asp-action="add_wishlist" asp-controller="home">
+                        <input value="@data.id" name="p_id" type="hidden">
+                        <button class="product-card__btn" type="submit">Wish list</button>
+                    </form>
+                </div>
+            </div>
+        
+
+    }
+    </div>
+
+
+
+@if (TempData["msg"] != null)
+{
+    <div class="container" id="mydada">
+        <div class="row">
+            <div class="col">
+                <h5> @TempData["msg"]</h5>
+            </div>
+        </div>
+    </div>
+}

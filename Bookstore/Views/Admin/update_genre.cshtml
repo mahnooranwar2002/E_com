@@ -1,0 +1,235 @@
+﻿@model Bookstore.Models.mainmodel;
+@{
+    Layout = "../shared/dashbroadlayout.cshtml";
+
+}
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    .card-header {
+        background-color: #44b89d;
+        color: white;
+    }
+
+    .btn1 {
+        background-color: #44b89d;
+        border-color: #44b89d;
+    }
+
+    .btn-secondary {
+        background-color: #44b89d;
+        border-color: #44b89d;
+    }
+
+    .btn-warning {
+        background-color: #ffc107;
+        border-color: #ffc107;
+    }
+
+    .btn-danger {
+        background-color: #dc3545;
+        border-color: #dc3545;
+    }
+
+    .text-grey {
+        color: #6c757d;
+    }
+
+    .text-black {
+        color: #343a40;
+    }
+
+    .modal-content {
+        border-radius: 15px;
+        overflow: hidden;
+    }
+
+    .modal-header {
+        background-color: #44b89d;
+        color: #fff;
+        border-bottom: none;
+    }
+
+    .modal-title {
+        font-weight: bold;
+    }
+
+    .close {
+        color: #fff;
+        opacity: 1;
+    }
+
+    .modal-body {
+        padding: 2rem;
+    }
+
+    .form-group label {
+        font-weight: 600;
+    }
+
+    .form-control {
+        border-radius: 10px;
+        padding: 0.75rem 1rem;
+        border: 1px solid #ced4da;
+        transition: all 0.3s ease-in-out;
+        box-shadow: none;
+        background-color: #f8f9fa;
+        font-size: 1rem;
+    }
+
+        .form-control:focus {
+            border-color: #80bdff;
+            box-shadow: 0 0 10px rgba(0, 123, 255, 0.25);
+            background-color: #ffffff;
+        }
+
+        .form-control::placeholder {
+            color: #6c757d;
+            opacity: 1;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .form-control:focus::placeholder {
+            opacity: 0.5;
+        }
+
+    .btn1 {
+        background-color: #44b89d;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        padding: 0.75rem 1.5rem;
+        font-weight: bold;
+        transition: background-color 0.3s ease-in-out;
+    }
+
+        .btn1:hover {
+            background-color: #44b89d;
+            color: white;
+        }
+
+    .btn-block {
+        margin-top: 1rem;
+    }
+
+    .input-group {
+        flex: 1;
+        max-width: 100%;
+    }
+
+    #searchPassenger {
+        border-radius: 0.25rem 0 0 0.25rem;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .input-group-append .btn {
+        border-radius: 0 0.25rem 0.25rem 0;
+        background-color: #44b89d;
+        color: white;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+        .input-group-append .btn:hover {
+            background-color: #44b89d;
+        }
+
+    .btn-primary {
+        background-color: #28a745;
+        border-color: #28a745;
+    }
+
+        .btn-primary:hover {
+            background-color: #44b89d;
+            border-color: #44b89d;
+        }
+
+    /* Counting cards */
+    .card-count {
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+    }
+
+        .card-count .card-body {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .card-count .count {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .card-count .icon {
+            font-size: 2.5rem;
+            color: #44b89d;
+        }
+
+    .main-content {
+        padding: 20px;
+        margin-top: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .cardd {
+        margin-bottom: 20px;
+    }
+
+    .cardbody {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .cardd-img {
+        object-fit: cover;
+        height: 100%;
+    }
+
+    .cardtitle {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    .carddbody ul {
+        list-style-type: disc;
+        padding-left: 20px;
+    }
+
+    .form-group select {
+        width: 100%;
+        padding: .375rem 1.75rem .375rem .75rem;
+    }
+
+</style>
+
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="addPassengerModalLabel">Edit Genre</h5>
+        </div>
+        <div class="modal-body">
+            <form method="post">
+                <input type="hidden" value="@Model.genres_data.id" class="form-control" id="passengerId" name="id" placeholder="Enter author name">
+                <div class="form-group">
+                    <label for="name">Genre Id</label>
+                    <input type="text" readonly class="form-control" value="@Model.genres_data.genres_id" name="genres_id" required id="name" placeholder="Enter author email">
+                </div>
+                <div class="form-group">
+                    <label for="passengerId">Name</label>
+                    <input type="text" value="@Model.genres_data.name" class="form-control" id="passengerId" name="name" placeholder="Enter author name">
+                </div>
+
+                
+                
+                <button type="submit" class="btn btn1 btn-block">save</button>
+            </form>
+        </div>
+    </div>
+</div>

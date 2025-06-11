@@ -1,0 +1,198 @@
+﻿ @model Bookstore.Models.mainmodel;
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        width: 80%;
+        margin: 0 auto;
+        padding: 20px 0;
+    }
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+    }
+
+        .header .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .header nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .header .icons i {
+            margin: 0 10px;
+            color: #333;
+        }
+
+    .cart-title {
+        font-size: 24px;
+        margin: 20px 0;
+    }
+
+    .cart-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+        .cart-table th, .cart-table td {
+            padding: 15px;
+            text-align: left;
+        }
+
+        .cart-table th {
+            background-color: #f1f1f1;
+        }
+
+        .cart-table td {
+            border-bottom: 1px solid #f1f1f1;
+        }
+
+        .cart-table img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+        }
+
+    .summary {
+        width: 300px;
+        float: right;
+        background-color: #fff;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+        .summary h3 {
+            margin-top: 0;
+        }
+
+        .summary .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+        }
+
+        .summary .gift-code {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+
+            .summary .gift-code input {
+                width: 70%;
+                padding: 5px;
+                border: 1px solid #ccc;
+            }
+
+            .summary .gift-code button {
+                padding: 5px 10px;
+                border: none;
+                background-color: #333;
+                color: #fff;
+            }
+
+        .summary .total-price {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .summary .checkout-btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+    .myci {
+        padding: 150px;
+        height: 500px;
+        color: red;
+        text-align: center;
+    }
+
+        .myci h5 {
+            font-weight: bolder;
+        }
+
+    #a_icon {
+        color: red;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="container">
+    @if (TempData["mydata"] != null)
+    {
+        <div class="container" id="mydada">
+            <div class="row">
+                <div class="col">
+                    <h5>your cart is complete</h5>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="cart-title">
+            @TempData["cart_count"]    Items in my cart
+        </div>
+        <table class="cart-table">
+            <thead>
+                <tr>
+                    <th>
+                        Item
+                    </th>
+                    <th>
+                       Status
+                    </th>
+                    <th>
+                        Remove
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var data in Model.wishlist_detail)
+                {
+                    <tr>
+                        <td>
+                            <img alt="Levis Jeans 501" height="50" src="@Url.Content("~/books_covers/"+data.book_data.book_cover)" width="50" />
+                            @data.book_data.name
+                        </td>
+                        <td>
+                            @if (data.book_data.qunatiy == 0)
+                            {
+                                <span> Not available</span>
+                            }
+                            else
+                            {
+                                <span> available</span>
+                            }
+                        </td>
+                      
+                        <td>
+                            <a href="@Url.Action("remove_productWishlist","home",new{id=data.wish_id})" id="a_icon"><i class="ri-delete-bin-2-line"></i></a>
+                        </td>
+                    </tr>
+                }
+
+
+            </tbody>
+        </table>
+    }
+
+    
+</div>
+
+ 

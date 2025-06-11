@@ -1,0 +1,349 @@
+﻿@model Bookstore.Models.mainmodel;
+@{
+    Layout = "../shared/dashbroadlayout.cshtml";
+
+}
+
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    .card-header {
+        background-color: #44b89d;
+        color: white;
+    }
+
+    .btn1 {
+        background-color: #44b89d;
+        border-color: #44b89d;
+    }
+
+    .btn-secondary {
+        background-color: #44b89d;
+        border-color: #44b89d;
+    }
+
+    .btn-warning {
+        background-color: #ffc107;
+        border-color: #ffc107;
+    }
+
+    .btn-danger {
+        background-color: #dc3545;
+        border-color: #dc3545;
+    }
+
+    .text-grey {
+        color: #6c757d;
+    }
+
+    .text-black {
+        color: #343a40;
+    }
+
+    .modal-content {
+        border-radius: 15px;
+        overflow: hidden;
+    }
+
+    .modal-header {
+        background-color: #44b89d;
+        color: #fff;
+        border-bottom: none;
+    }
+
+    .modal-title {
+        font-weight: bold;
+    }
+
+    .close {
+        color: #fff;
+        opacity: 1;
+    }
+
+    .modal-body {
+        padding: 2rem;
+    }
+
+    .form-group label {
+        font-weight: 600;
+    }
+
+    .form-control {
+        border-radius: 10px;
+        padding: 0.75rem 1rem;
+        border: 1px solid #ced4da;
+        transition: all 0.3s ease-in-out;
+        box-shadow: none;
+        background-color: #f8f9fa;
+        font-size: 1rem;
+    }
+
+        .form-control:focus {
+            border-color: #80bdff;
+            box-shadow: 0 0 10px rgba(0, 123, 255, 0.25);
+            background-color: #ffffff;
+        }
+
+        .form-control::placeholder {
+            color: #6c757d;
+            opacity: 1;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .form-control:focus::placeholder {
+            opacity: 0.5;
+        }
+
+    .btn1 {
+        background-color: #44b89d;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        padding: 0.75rem 1.5rem;
+        font-weight: bold;
+        transition: background-color 0.3s ease-in-out;
+    }
+
+        .btn1:hover {
+            background-color: #44b89d;
+            color: white;
+        }
+
+    .btn-block {
+        margin-top: 1rem;
+    }
+
+    .input-group {
+        flex: 1;
+        max-width: 100%;
+    }
+
+    #searchPassenger {
+        border-radius: 0.25rem 0 0 0.25rem;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .input-group-append .btn {
+        border-radius: 0 0.25rem 0.25rem 0;
+        background-color: #44b89d;
+        color: white;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+        .input-group-append .btn:hover {
+            background-color: #44b89d;
+        }
+
+
+
+    /* Counting cards */
+    .card-count {
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+    }
+
+        .card-count .card-body {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .card-count .count {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .card-count .icon {
+            font-size: 2.5rem;
+            color: #44b89d;
+        }
+
+    .main-content {
+        padding: 20px;
+        margin-top: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .cardd {
+        margin-bottom: 20px;
+    }
+
+    .cardbody {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .cardd-img {
+        object-fit: cover;
+        height: 100%;
+    }
+
+    .cardtitle {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    .carddbody ul {
+        list-style-type: disc;
+        padding-left: 20px;
+    }
+
+    .form-group select {
+        width: 100%;
+        padding: .375rem 1.75rem .375rem .75rem;
+    }
+
+</style>
+@if (TempData["msg"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @TempData["msg"]
+    </div>
+
+}
+@if (TempData["msg2"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["msg2"]
+    </div>
+}
+<div class="modal fade" id="addPassengerModal" tabindex="-1" aria-labelledby="addPassengerModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addPassengerModalLabel">Add New Books</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="post" asp-action="add_books" enctype="multipart/form-data" asp-controller="admin">
+                    <div class="form-group">
+                        <label for="passengerId">Name</label>
+                        <input type="text" class="form-control" id="passengerId" name="name" placeholder="Enter genres name">
+                    </div>
+                    <div class="form-group">
+                        <label for="passengerId">Book Cover</label>
+                        <input type="file" class="form-control" id="passengerId" name="book_cover" placeholder="Enter genres name">
+                    </div>
+                    <div class="form-group">
+                        <label for="passengerId">Author</label>
+                        <select name="auth_id" class="form-control" required>
+                        <option hidden>select an author</option>
+                            @foreach(var data in Model.auth_details)
+                            {
+                                <option value="@data.id">@data.name</option>
+                            }
+                        </select>   
+                    </div>
+                    <div class="form-group">
+                        <label for="passengerId">genres</label>
+                        <select name="genres_id" class="form-control" required>
+                            <option hidden>select genres</option>
+                            @foreach (var data in Model.genres_details)
+                            {
+                                <option value="@data.id">@data.name</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="passengerId">Book Quantity</label>
+                        <input type="text" class="form-control" id="passengerId" name="qunatiy" placeholder="Enter genres name">
+                    </div>
+                    <div class="form-group">
+                        <label for="passengerId">Book Price</label>
+                        <input type="text" class="form-control" id="passengerId" name="price" placeholder="Enter genres name">
+                    </div>
+                    <div class="form-group">
+                        <label for="passengerId">Book Desprition</label>
+                        <textarea name="description" required class="form-control"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn1 btn-block">Add Books</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid ">
+    <div class="main-content">
+        <h1>Book Management</h1>
+        <div class="card">
+            <div class="card-header">Book List</div>
+            <div class="card-body table-responsive">
+
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <div class="input-group" style="flex: 1;">
+                        <form style="width: 100%;" class="d-flex" autocomplete="off">
+                            <input type="text" name="textsreach"
+                                   class="form-control" id="searchPassenger" placeholder="Search for Books...">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline" type="submit">Search</button>
+                            </div>
+                        </form>
+
+                    </div>
+                    <button class="btn btn1  ml-3 mybtn" data-toggle="modal" data-target="#addPassengerModal">Add Books</button>
+                </div>
+
+                <table class="table table-striped ">
+                    <thead>
+                        <tr>
+                           
+                            <th>Name</th>
+                            <th>Author</th>
+                            <th>Images</th>
+
+                            <th style="text-align: end; padding-right: 5%;">Action</th>
+                        </tr>
+                        @foreach (var data in Model.book_details)
+                        {
+                            <tr>
+                             
+                                <td>@data.name</td>
+                                <td>@data.auth_name.name</td>
+                                <td><img src="@Url.Content("~/books_covers/"+data.book_cover)" width="100px" height="100px"></td>
+                                <td style="text-align: end; padding-right: 5%;">
+                                    <button class="btn btn-primary btn-sm" data-toggle="modal">
+                                        <a href="@Url.Action("books_data","admin",new{id=data.id})" style="color:white;">
+                                            <i class='bx bxs-detail'></i>
+                                        </a>
+                                    </button>
+                                    <button class="btn btn-primary btn-sm" data-toggle="modal">
+                                        <a href="@Url.Action("books_update","admin",new{id=data.id})" style="color:white;">
+                                            <i class='bx bxs-edit-alt'></i>
+                                        </a>
+                                    </button>
+                                    <button class="btn btn-danger btn-sm" data-toggle="modal">
+                                        <a href="@Url.Action("books_delete","admin",new{id=data.id})" style="color:white;">
+                                            <i class='bx bxs-trash'></i>
+                                        </a>
+                                    </button>
+
+                                </td>
+                            </tr>
+
+                        }
+
+
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+                @if (TempData["count"] != null)
+                {
+                    <h4 style="color:red;text-align:center;"> @TempData["count"]</h4>
+                }
+            </div>
+
+        </div>
+
+    </div>
+</div>
